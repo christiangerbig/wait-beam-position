@@ -23,7 +23,7 @@ main
 	bne.s	main
 
 
-; Waiting for a certain vertical beam position
+; Waiting for a specific vertical beam position
 ; Input
 ; a6	... Custom chips base
 ; Result
