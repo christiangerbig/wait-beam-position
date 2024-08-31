@@ -5,14 +5,19 @@ COLOR00				EQU $180
 
 _CIAA				EQU $bfe001
 CIAPRA				EQU $000
-CIAB_GAMEPORT0			EQU 6
+CIAB_GAMEPORT0			EQU 6	; Left mouse button
 
 vert_beam_position		EQU $135 ; PAL display
 
 rgb4_red			EQU $f00
 
 
+
 main
+	lea	_CIAA,a4
+	lea	_CUSTOM,a6
+
+main_loop
 	bsr	wait_vert_beam_position
 ;	bsr	swap_playfields
 ;	bsr	routine1
@@ -20,10 +25,10 @@ main
 ;	bsr	routine3
 	move.w	#rgb4_red,COLOR00(a6)
 	btst	#CIAB_GAMEPORT0,CIAPRA(a4)
-	bne.s	main
+	bne.s	main_loop
 
 
-; Waiting for a specific vertical beam position
+; Wait for a specific vertical beam position
 ; Input
 ; a6	... Custom chips base
 ; Result
