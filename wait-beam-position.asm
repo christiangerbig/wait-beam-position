@@ -7,7 +7,7 @@ _CIAA				EQU $bfe001
 CIAPRA				EQU $000
 CIAB_GAMEPORT0			EQU 6
 
-vert_beam_position		EQU $135
+vert_beam_position		EQU $135 ; PAL display
 
 rgb4_red			EQU $f00
 
@@ -46,6 +46,3 @@ wait_vert_beam_position_loop
 ; ... routines
 
 	END
-
-
-
