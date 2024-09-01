@@ -7,7 +7,7 @@ _CIAA				EQU $bfe001
 CIAPRA				EQU $000
 CIAB_GAMEPORT0			EQU 6	; Left mouse button
 
-vert_beam_position		EQU $135 ; PAL display
+vert_beam_position		EQU $135 ; PAL display (total short frame = $137, long frame = $138), minus 3 scanlines for swapping playfields and setting bitplane pointers
 
 rgb4_red			EQU $f00
 
