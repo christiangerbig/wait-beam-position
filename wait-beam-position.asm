@@ -9,7 +9,7 @@ CIAB_GAMEPORT0			EQU 6	; left mouse button
 
 beam_position			EQU $136 ; PAL: bottom of frame
 
-vertical_position_bits		EQU $3ff ; V0..V9 position bits
+vertical_position_mask		EQU $3ff ; V0..V9 position bits
 
 
 ; Input
@@ -33,7 +33,7 @@ main_loop
 ; Result
 	CNOP 0,4
 wait_beam_position
-	move.l	#vertical_position_bits<<8,d1
+	move.l	#vertical_position_mask<<8,d1
 	move.l	#beam_position<<8,d2
 	lea	VPOSR(a6),a0
 	lea	VHPOSR(a6),a1
@@ -42,7 +42,7 @@ wait_beam_position_loop1
 	swap	d0			; high word: VPOSR
 	move.w	(a1),d0			; low word: VHPOSR
 	and.l	d1,d0			; vertical position
-	cmp.l	d2,d0			; one position per frame on 680x0 machines
+	cmp.l	d2,d0			; only one position per frame on 680x0 machines
 	bge.s	wait_beam_position_loop1
 wait_beam_position_loop2
 	move.w	(a0),d0
