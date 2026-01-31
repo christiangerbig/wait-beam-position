@@ -21,7 +21,7 @@ main
 main_loop
 	bsr	wait_beam_position
 ;	bsr	routine1
-;	bsr     routine2
+;	bsr	routine2
 ;	bsr	routine3
 	btst	#CIAB_GAMEPORT0,CIAPRA(a4)
 	bne.s	main_loop
