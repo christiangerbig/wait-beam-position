@@ -14,6 +14,7 @@ vertical_position_mask		EQU $3ff ; V0..V9 position bits
 
 ; Input
 ; Result
+; no return value
 	CNOP 0,4
 main
 	lea	_CIAA,a4
@@ -31,6 +32,7 @@ main_loop
 ; Input
 ; a6.l	Custom chips base
 ; Result
+; no return value
 	CNOP 0,4
 wait_beam_position
 	move.l	#vertical_position_mask<<8,d1
